@@ -3,6 +3,14 @@ libobs-sharp
 
 C# wrapper for libobs (part of obs-studio, multiplatform rewrite of Open Broadcaster Software)
 
+## Repository Layout
+
+* `libobs-sharp/` - C# wrapper library for libobs native APIs.
+* `test/` - WinForms test harness and sample UI.
+* `helpers/` - Visual Studio/Mono helper setup.
+* `libobs-sharp.sln` - Visual Studio solution with x86 and x64 configurations.
+* `scripts/validate.sh` - local validation entrypoint.
+
 ### Requirements
 
 * [obs-studio](https://github.com/jp9000/OBS-studio)
@@ -17,6 +25,16 @@ C# wrapper for libobs (part of obs-studio, multiplatform rewrite of Open Broadca
 ### Windows / Visual Studio
 
 * See helpers/PrepareMonoVS
+
+## Validation
+
+Run:
+
+```bash
+./scripts/validate.sh
+```
+
+On a machine with legacy MSBuild available, the script builds the x86 Release solution configuration. On Linux hosts without legacy .NET Framework tooling, it performs structural checks against the solution and project files and exits with a documented build skip.
 
 ### TODO
 
