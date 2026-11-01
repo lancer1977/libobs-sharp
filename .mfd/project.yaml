@@ -1,6 +1,6 @@
 schema_version: 2
 merge_policy:
-  integration_branch: master
+  integration_branch: dev
   protected_branch: master
   required_checks:
     - "validate"
@@ -10,10 +10,10 @@ merge_policy:
       required_for: []
     integration:
       command: "./scripts/validate.sh"
-      required_for: [master]
+      required_for: [dev, master]
     automation:
       command: "./scripts/validate.sh"
-      required_for: [master]
+      required_for: [dev, master]
   escalate_paths:
     - "**/*secret*"
     - "**/*credential*"

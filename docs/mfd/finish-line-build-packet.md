@@ -20,7 +20,7 @@ C# wrapper for libobs (fork of ilosvideos/libobs-sharp). This packet records the
 
 ## Current behavior
 
-- Integration branch: `master`; protected branch: `master`.
+- Integration branch: `dev`; protected branch: `master`.
 - Validate runs on windows-latest (GitHub-hosted); hosted-runner budget is exhausted portfolio-wide, so the check may not run. Issues are disabled on this repo.
 
 ## Behavior map
@@ -39,14 +39,14 @@ Unchanged. Any change to auth, secrets, workflows, deploy or infrastructure path
 
 | Requirement | Scenario | Validation | Expected evidence |
 | --- | --- | --- | --- |
-| unit tier | PR to `master` | `None` | Not in CI |
-| integration tier | PR to `master` | `./scripts/validate.sh` | validate |
-| automation tier | PR to `master` | `./scripts/validate.sh` | validate |
+| unit tier | PR to `dev` | `None` | Not in CI |
+| integration tier | PR to `dev` | `./scripts/validate.sh` | validate |
+| automation tier | PR to `dev` | `./scripts/validate.sh` | validate |
 
 ## Per-project merge policy
 
 - Required checks: `validate`
-- Integration branch: master
+- Integration branch: dev
 - Protected branch: master
 
 | Test tier | Command | Required | CI job name |
@@ -55,7 +55,7 @@ Unchanged. Any change to auth, secrets, workflows, deploy or infrastructure path
 | Integration | `./scripts/validate.sh` | Yes | validate |
 | Automation | `./scripts/validate.sh` | Yes | validate |
 
-Checks observed in workflow files on `master`:
+Checks observed in workflow files on `dev`:
 
 - `validate` from Validate (validate.yml) (every push/pull_request; windows-latest)
 
@@ -104,7 +104,7 @@ Docs-only. Roll back by reverting the packet commit. Deploys, if any, are out of
 
 ## Release controls and closeout evidence
 
-- Target branch: `master`
+- Target branch: `dev`
 - Pull request: Pending
 - Required reviewers: lancer1977
 - CI and validation evidence: Pending
