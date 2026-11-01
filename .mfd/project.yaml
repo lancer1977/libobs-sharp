@@ -1,0 +1,26 @@
+schema_version: 2
+merge_policy:
+  integration_branch: master
+  protected_branch: master
+  required_checks:
+    - "validate"
+  test_tiers:
+    unit:
+      command: "None"
+      required_for: []
+    integration:
+      command: "./scripts/validate.sh"
+      required_for: [master]
+    automation:
+      command: "./scripts/validate.sh"
+      required_for: [master]
+  escalate_paths:
+    - "**/*secret*"
+    - "**/*credential*"
+    - "**/*auth*"
+    - ".github/workflows/**"
+    - "**/*infra*"
+    - "**/*deploy*"
+  escalate_labels:
+    - decision
+    - bug
